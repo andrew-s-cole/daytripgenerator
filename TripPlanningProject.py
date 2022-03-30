@@ -5,7 +5,6 @@ transportations = ['train', 'car', 'cab']
 entertainments = ['sightseeing', 'chocolate tasting', 'touring']
 restaurants = ['Vegetarian', 'traditional cuisine', 'local cuisine']
 name = input('Please enter your name: ')
-github = ('Checking...')
 
 
 def initial_greeting():
