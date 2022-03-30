@@ -70,7 +70,7 @@ def restaurant_choice():
         user_input = input()
         if user_input != 'Yes':
             print('I can pick another restaurant type instead, how about',
-                  random.choice(entertainments), 'for your restaurant choice?')
+                  random.choice(restaurants), 'for your restaurant choice?')
         else:
             print('Perfect, lets continue planning your trip!')
             break
