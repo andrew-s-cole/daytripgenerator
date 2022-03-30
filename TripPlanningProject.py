@@ -84,7 +84,8 @@ def all_choices():
     while True:
         user_input = input()
         if user_input != 'Yes':
-            return destination_choice
+            print('I am sorry, lets try again.')
+            break
 
         else:
             print('Your trip has been completed!')
