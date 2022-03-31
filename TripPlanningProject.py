@@ -1,9 +1,11 @@
 import random
 
-destinations = ['Belgium', 'Switzerland', 'Germany']
-transportations = ['train', 'car', 'cab']
-entertainments = ['sightseeing', 'chocolate tasting', 'touring']
-restaurants = ['Vegetarian', 'traditional cuisine', 'local cuisine']
+destinations = ['Belgium', 'Switzerland', 'Germany', 'Ireland']
+transportations = ['train', 'car', 'cab', 'bike']
+entertainments = ['sightseeing', 'chocolate tasting',
+                  'touring', 'immersing yourself in the culture']
+restaurants = ['vegetarian food', 'traditional cuisine',
+               'local cuisine', 'at a fancy restaurant']
 name = input('Please enter your name: ')
 
 
@@ -15,80 +17,79 @@ def initial_greeting():
 initial_greeting()
 
 
-def destination_choice():
-    print('I have chosen', random.choice(destinations),
-          'for your trip location, is this selection okay? Enter Yes/No')
-    while True:
-        user_input = input()
-        if user_input != 'Yes':
-            print('I can pick another location instead, how about',
-                  (random.choice(destinations)), 'for your trip location? Enter Yes/No')
-        else:
-            print('Perfect, lets continue planning your trip!')
-            break
+def destination_choice(options, category):
+    random_option = random.choice(options)
+    response = input(
+        f'We have chosen {random_option} for your {category}, is that okay? Enter Yes/No: ')
+
+    while response != 'Yes':
+        random_option = random.choice(options)
+        response = input(
+            f'How about {random_option} for your {category} instead? Enter Yes/No: ')
+    else:
+        print('Perfect! lets continue planning your trip!')
+        return random_option
 
 
-destination_choice()
+def transportation_choice(options, category):
+    random_option = random.choice(options)
+    response = input(
+        f'We have chosen {random_option} for your {category}, is that okay? Enter Yes/No: ')
+
+    while response != 'Yes':
+        random_option = random.choice(options)
+        response = input(
+            f'How about {random_option} for your {category} instead? Enter Yes/No: ')
+    else:
+        print('Perfect! lets continue planning your trip!')
+        return random_option
 
 
-def transportation_choice():
-    print('I have chosen', random.choice(transportations),
-          'for your mode of transportation, is this selection okay? Enter Yes/No')
-    while True:
-        user_input = input()
-        if user_input != 'Yes':
-            print('I can pick another mode of transportation instead, how about by',
-                  random.choice(transportations), 'for your mode of transportation?')
-        else:
-            print('Perfect, lets continue planning your trip!')
-            break
+def entertainment_choice(options, category):
+    random_option = random.choice(options)
+    response = input(
+        f'We have chosen {random_option} for your {category}, is that okay? Enter Yes/No: ')
+
+    while response != 'Yes':
+        random_option = random.choice(options)
+        response = input(
+            f'How about {random_option} for your {category} instead? Enter Yes/No: ')
+    else:
+        print('Perfect! lets continue planning your trip!')
+        return random_option
 
 
-transportation_choice()
+def restaurant_choice(options, category):
+    random_option = random.choice(options)
+    response = input(
+        f'We have chosen {random_option} for your {category}, is that okay? Enter Yes/No: ')
+
+    while response != 'Yes':
+        random_option = random.choice(options)
+        response = input(
+            f'How about {random_option} for your {category} instead? Enter Yes/No: ')
+    else:
+        print('Perfect! lets continue planning your trip!')
+        return random_option
 
 
-def entertainment_choice():
-    print('I have chosen', random.choice(entertainments),
-          'for your form of entertainment, is this okay? Enter Yes/No')
-    while True:
-        user_input = input()
-        if user_input != 'Yes':
-            print('I can pick another form of entertainment instead, how about',
-                  random.choice(entertainments), 'for your entertainment choice?')
-        else:
-            print('Perfect, lets continue planning your trip!')
-            break
+chosen_destination = destination_choice(destinations, 'destination')
+chosen_transportation = transportation_choice(
+    transportations, 'transportation')
+chosen_entertainment = entertainment_choice(entertainments, 'entertainment')
+chosen_restaurant = restaurant_choice(restaurants, 'restaurant')
+
+print(
+    f'Your trip will be going to {chosen_destination}, where you will travel by {chosen_transportation}, entertaining yourself by {chosen_entertainment}, and eating {chosen_restaurant}.')
 
 
-entertainment_choice()
+def trip_completion():
+    response = input(
+        f'your trip has been completed {name}! Are you satisfied with your choices? Enter Yes/No: ')
+    if response == 'Yes':
+        print('You are all set, please enjoy your trip!')
+    else:
+        print('I am sorry, lets try again!')
 
 
-def restaurant_choice():
-    print('I have chosen', random.choice(restaurants),
-          'for your restaurant choice, is this okay? Enter Yes/No')
-    while True:
-        user_input = input()
-        if user_input != 'Yes':
-            print('I can pick another restaurant type instead, how about',
-                  random.choice(restaurants), 'for your restaurant choice?')
-        else:
-            print('Perfect, lets continue planning your trip!')
-            break
-
-
-restaurant_choice()
-
-
-def all_choices():
-    print('We have finalized your trip, are you satisified with your current choices? Enter Yes/No')
-    while True:
-        user_input = input()
-        if user_input != 'Yes':
-            print('I am sorry, lets try again.')
-            break
-
-        else:
-            print('Your trip has been completed!')
-
-
-all_choices()
+trip_completion()
